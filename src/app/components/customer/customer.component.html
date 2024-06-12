@@ -2,4 +2,17 @@
   <mat-card-header>
     <h2>Customer</h2>
   </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container
+        matColumnDef="{{ innerColumn }}"
+        *ngFor="let innerColumn of tableColumns"
+      >
+        <th mat-header-cell *matHeaderCellDef>{{ innerColumn }}</th>
+        <th mat-cell *matCellDef="let element">{{ element[innerColumn] }}</th>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+    </table>
+  </mat-card-content>
 </mat-card>
