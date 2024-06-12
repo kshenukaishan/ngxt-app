@@ -1,26 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { MasterService } from '../../services/master.service';
-import { Posts } from '../../../model/Posts';
+import { Customer } from '../../../model/Customer';
+import { MaterialModule } from '../../../module/MaterialModule';
 
 @Component({
   selector: 'app-customer',
   standalone: true,
-  imports: [],
+  imports: [MaterialModule],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css',
 })
 export class CustomerComponent implements OnInit {
   constructor(private service: MasterService) {}
 
-  postData!: Posts[];
+  customers!: Customer[];
   ngOnInit(): void {
     this.loadInitialData();
   }
 
   loadInitialData() {
-    this.service.getPosts().subscribe((res) => {
-      this.postData = res;
-      console.log(this.postData);
+    this.service.getCustomers().subscribe((res) => {
+      this.customers = res;
+      console.log(this.customers);
     });
   }
 }

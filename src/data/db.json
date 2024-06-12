@@ -1,9 +1,10 @@
 {
-  "posts": [
+  "customers": [
     {
       "id": 1,
-      "title": "first post",
-      "description": "about the society"
+      "firstName": "andrew",
+      "lastName": "simon",
+      "email": "andrew@gmail.com"
     }
   ]
 }
